@@ -1,0 +1,29 @@
+<html>
+<head></head>
+<body>
+<form>
+            <input type="button" id="finish" value="Finish"> 
+        </form>
+<div id="dragsource">
+<p>123</p>
+</div>
+<div id="container" style="background-color:gray;height:300">
+</div><!-- End container -->
+<script src="scripts/jquery-1.6.2.min.js"></script>
+<script  src="scripts/jquery-ui.min.js"></script>
+<script>
+$(function() {
+$( "#dragsource" ).draggable({
+helper:"clone"
+});
+
+$("#container").droppable({
+drop:function(event,ui){
+$(this).append($("<p style='position:absolute;left:"+
+ui.offset.left+";top:"+ui.offset.top+"'>clone</p>"));
+}
+});
+})
+</script>
+</body>
+</html>
